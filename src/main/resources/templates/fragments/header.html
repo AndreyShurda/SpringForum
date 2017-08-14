@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+    <div th:fragment="header">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/themes}">Themes</a></li>
+                        <li><a href="#" th:href="@{/theme/new}">Create Theme</a></li>
+                        <li><a href="#" th:href="@{/login}">Login</a></li>
+                        <li><a href="#" th:href="@{/registration}">Registration</a></li>
+                        <li><a href="#" th:href="@{/about}">About</a></li>
+                        <li><a href="#" th:href="@{/user/users}">Admin Panel</a></li>
+                        <!--<li><a sec:authorize="hasAuthority('ADMIN')" href="#" th:href="@{/user/users}">Admin Panel</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--<div class="jumbotron">-->
+        <div align="center">
+            <div>
+                <img src="../../static/images/forum.jpg" width="800"
+                     th:src="@{/images/forum.jpg}"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

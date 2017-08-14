@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<div th:replace="fragments/header :: header-css"/>-->
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+
+<!--<div th:replace="fragments/header :: header"/>-->
+
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div class="starter-template">
+        <h1>Web Application Forum. You can authorization and add themes and comments on forum</h1>
+        <p>This application create with such technologies:</p>
+        <ul>
+            <li>Spring Boot, Security</li>
+            <li>Hibernate, MySQL</li>
+            <li>CSS, JavaScript, JQuery, BootStrap</li>
+            <li>thymeleaf</li>
+        </ul>
+    </div>
+
+</div>
+
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

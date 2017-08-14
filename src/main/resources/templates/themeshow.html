@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div>
+        <!--<form class="form-horizontal" th:action="@{/theme}" method="post">-->
+        <form class="form-horizontal" th:action="${'/theme/' + theme.themeId}" method="post">
+            <input type="hidden" th:field="*{theme.themeId}"/>
+            <input type="hidden" th:field="*{theme.title}"/>
+            <input type="hidden" th:field="*{comment.user}"/>
+            <!--<input type="hidden" th:field="*{comments}"/>-->
+            <h2 th:text="*{theme.title}">Product Details </h2>
+            <div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Comment</th>
+                        <th>User</th>
+                    </tr>
+                    <tr th:each="comments : ${theme.getComments()}">
+                        <td th:text="${comments.commentsId}">
+                            <!--<a href="/comments/${comments.id}">Id</a>-->
+                        </td>
+                        <td th:text="${comments.dateTime}"/>
+                        <td th:text="${comments.message}"/>
+                        <td th:text="${comments.user.name}"/>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div sec:authorize="!isAnonymous()">
+                <p><b>Add Comment: </b></p>
+                <p><textarea rows="5" cols="45" name="text" class="form-control"
+                             th:field="*{comment.message}"></textarea>
+                </p>
+                <button type="submit" class="btn btn-default">Add Comment</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
